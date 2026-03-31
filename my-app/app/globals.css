@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*general*/
+:root {
+  --background: #ffffff;
+  --background2: #ececec;
+  --highlight: #70da87;
+  --header: #969696;
+  --border: #747474;
+  --text: #49453b;
+  --text2: #b1b1b1;
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #39435a;
+    --background2: #535d75;
+    --highlight: #1b1d7e;
+    --header: #3f4350;
+    --border:  #171717;
+    --text: #ededed;
+    --text2: #c7c7c7;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+.headerBar {
+  background: var(--header);
+  border-bottom: var(--border) solid 1px;
+  height: 5%;
+  width: 100%;
+}
+
+/*trialpage*/
+
+#body {
+  height: 95%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: 100%;
+}
+
+#catagorySelect {
+  height: 100%;
+  width: 100%;
+  background: var(--background2);
+  grid-column-start: 1;
+  grid-column-end: 1;
+  overflow-y: scroll;
+}
+
+#filterBuild {
+  padding: 15px;
+  border: var(--border) solid 1px;
+  border-top-style: none;
+  border-bottom-style: none;
+  height: 100%;
+  width: 100%;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+
+#filterBuild p {
+  content: "drag a catagory to start filtering...";
+  color: var(--text2);
+}
+
+
+#righthand {
+  background: var(--background2);
+  height: 100%;
+  width: 100%;
+  grid-column-start: 5;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
+}
+
+
+#graphvars {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+#dataList {
+  border: var(--border);
+  border-width: 1px;
+  border-top-style: solid;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.catagory {
+  justify-self: center;
+  padding: 15px;
+  width: 85%;
+  height: 20%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: var(--highlight);
+  border-radius: 5px;
+}
+
+.filter {
+  float: left;
+  background: var(--highlight);
+  border-radius: 5px;
+  margin-left: 15px;
+  width: 180px;
+  min-height: 180px;
+}
+
+/*homepage*/
+
+#container {
+  height: 95%;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+}
+
+#sideBar {
+  background: var(--background2);
+  grid-column-start: 1;
+  grid-column-end: 1;
+  display: grid;
+  grid-template-rows: repeat(3, 34%);
+  overflow-y: hidden;
+}
+
+#trialView {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  overflow-y: scroll;
+}
+
+.sideBarOption {
+  border: var(--border);
+  border-right-style: solid;
+  border-width: 1px;
+  border-bottom-style: dashed;
+}
+
+.Menu {
+  position: absolute;
+  inset-inline-start: 25%;
+  inset-block-start: 25%;
+  height: 100px;
+  padding: 15px;
+  background: var(--background2);
+  border-radius: 5px;
+}
+
+.trial {
+  float: top;
+  width: 95%;
+  height: 130px;
+  background: var(--highlight);
+  border-radius: 5px;
+  text-align: left;
+  margin: 25px;
+  margin-bottom: 0px;
+  padding: 15px;
+}
