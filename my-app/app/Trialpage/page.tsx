@@ -1,6 +1,7 @@
 import { TestButton } from "../test_button/testButton";
 import { Catagory } from "../objectComponents/catagory";
 import { FilterFactory } from "./Filter_Select/FilterMan";
+import { HomeButton } from "./Home_Button/home_Button";
 
 export default function trialEditor() {
     return <>
@@ -9,7 +10,7 @@ export default function trialEditor() {
                                       * homepage: takes user to homepage
                                       * visualize data: graphs data by trial variables
                                     */}
-            <TestButton />
+            <HomeButton />
 
         </div>
         <div id="body">
