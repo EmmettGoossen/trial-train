@@ -40,3 +40,6 @@ next-env.d.ts
 
 #database
 /data
+
+#build plans
+/constuct.txt
