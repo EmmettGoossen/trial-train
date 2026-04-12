@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { trialsBase } from "../../data/contactTrialDB";
 
 
 export function CreateTrial() {
@@ -33,6 +34,7 @@ export function Menu({ setShowCreation }: MenuProps) {
                 }}></input>
             <button style={{ position: 'relative', top: '25px' }}
                 onClick={() => {
+                    updateDB(inputValue);
                     setShowCreation(false);
                     params.set("name", inputValue);
                     router.push(`/Trialpage?${params.toString()}`);
@@ -41,4 +43,21 @@ export function Menu({ setShowCreation }: MenuProps) {
             </button>
         </div>
     </div>;
+}
+
+async function updateDB(name: string) {
+  const response = await fetch('/api/trial', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({name: name}),
+  });
+  // Check if the response is actually OK (status 200-299)
+  if (!response.ok) {
+    const errorText = await response.text(); // Read as text to avoid JSON crash
+    console.error("Server Error:", errorText);
+    return;
+  }
+
+  const result = await response.json();
+  return result;
 }

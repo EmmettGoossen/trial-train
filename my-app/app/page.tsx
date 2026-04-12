@@ -1,5 +1,6 @@
 import { CreateTrial } from "./objectComponents/createTrialButton";
 import { TrialListButton } from "./objectComponents/trialListButton";
+import { trialsBase } from "@/data/contactTrialDB";
 
 export default function Home() {
   return <>
@@ -13,8 +14,8 @@ export default function Home() {
         {/*<updateCatagories/>*/}{/*add/update db rows in catagories, possible change to api*/}
       </div>
       <div id="trialView"> {/*lists all trials in db*/}
-        {[...Array(15).keys()].map((dummy: number, i: number) => {
-          return <TrialListButton key={i} />
+        {trialsBase.getTrials().map((trial: any, i: number) => {
+          return <TrialListButton trial={trial} key={i} />
         })}
       </div>
     </div>

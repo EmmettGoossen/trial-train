@@ -1,13 +1,17 @@
 'use client';
 import { useRouter } from "next/navigation";
 
-export function TrialListButton() {
+interface trialProp {
+    trial: any
+}
+
+export function TrialListButton({ trial }: trialProp) {
     const router = useRouter();
     const params = new URLSearchParams();
 
     return <button className="trial"
         onClick={() => {
-            params.set("name", "test");
+            params.set("name", trial.name);
             router.push(`/Trialpage?${params.toString()}`);
-        }}>Test</button>;
+        }}>{trial.name}</button>;
 }
