@@ -40,7 +40,6 @@ next-env.d.ts
 
 #database
 /data
-/data/database_full.db
 
 #build plans
 /constuct.txt
