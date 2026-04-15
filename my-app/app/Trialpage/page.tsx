@@ -2,6 +2,7 @@ import { TestButton } from "../test_button/testButton";
 import { Catagory } from "../objectComponents/catagory";
 import { FilterFactory } from "./Filter_Select/FilterMan";
 import { HomeButton } from "./Home_Button/home_Button";
+import { DeleteTrial } from "../objectComponents/deleteTrialButton";
 
 export default function trialEditor() {
     return <>
@@ -11,6 +12,9 @@ export default function trialEditor() {
                                       * visualize data: graphs data by trial variables
                                     */}
             <HomeButton />
+            <></>
+            <></>
+            <DeleteTrial />
 
         </div>
         <div id="body">

@@ -36,6 +36,21 @@ body {
   border-bottom: var(--border) solid 1px;
   height: 5%;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: 100%;
+}
+
+.headerBar > .home {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.headerBar > .deleteTrial {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  margin-top: 2%;
+  margin-bottom: 0%;
 }
 
 /*trialpage*/
@@ -125,6 +140,14 @@ body {
   background: var(--background2);
   min-height: 144px;
   width: 100%;
+}
+
+.deleteTrial {
+  background-color: rgb(235, 57, 57);
+  color: #ececec;
+  border-radius: 5px;
+  width: 70%;
+  height: 80%;
 }
 
 /*homepage*/

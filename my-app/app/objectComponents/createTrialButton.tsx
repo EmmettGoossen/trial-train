@@ -1,7 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { trialsBase } from "../../data/contactTrialDB";
 
 
 export function CreateTrial() {
@@ -33,7 +32,7 @@ export function Menu({ setShowCreation }: MenuProps) {
                     setInputValue(e.target.value);
                 }}></input>
             <button style={{ position: 'relative', top: '25px' }}
-                onClick={() => {
+                onClick={() => { //add duplicate & empty name test
                     updateDB(inputValue);
                     setShowCreation(false);
                     params.set("name", inputValue);
@@ -49,11 +48,10 @@ async function updateDB(name: string) {
   const response = await fetch('/api/trial', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({name: name}),
+    body: JSON.stringify({name: name, type:"create"}),
   });
-  // Check if the response is actually OK (status 200-299)
   if (!response.ok) {
-    const errorText = await response.text(); // Read as text to avoid JSON crash
+    const errorText = await response.text(); 
     console.error("Server Error:", errorText);
     return;
   }
