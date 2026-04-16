@@ -180,15 +180,6 @@ body {
   border-bottom-style: dashed;
 }
 
-.Menu {
-  position: absolute;
-  inset-inline-start: 25%;
-  inset-block-start: 25%;
-  height: 100px;
-  padding: 15px;
-  background: var(--background2);
-  border-radius: 5px;
-}
 
 .trial {
   float: top;

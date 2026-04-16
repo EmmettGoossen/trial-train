@@ -20,12 +20,18 @@ export function Menu({ setShowCreation }: MenuProps) {
     const params = new URLSearchParams(document.location.search);
 
     return <div style={{ background: "rgba(155,155,155,0.4)", width: "100vw", height: "100vh", position: "fixed" }}>
-        <div className="Menu">
+        <div style={{ position: "absolute", 
+                      insetInlineStart: "25%", 
+                      insetBlockStart: "25%", 
+                      height: "100px", 
+                      padding: "15px", 
+                      background: "var(--background2)",
+                      borderRadius: "5px" }}>
             <div>
                 <button onClick={() => setShowCreation(false)} className="text-red-500 pr-2">x</button>
             </div>
             <p>Warning! this is irreversible...</p>
-            <button style={{ position: 'relative', top: '25px' }}
+            <button style={{ position: 'relative', top: '5px', left: '70%' }}
                 onClick={() => {
                     let name = String(params.get("name"));
                     updateDB(name);
