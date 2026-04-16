@@ -7,7 +7,10 @@ class trialsDB {
     }
 
     //gets array of just names and ids
-    getTrials(){
+    getTrials(name: string = ""){
+        if(name != "") {
+            return DatBase.stmtCall('select * from trials where name = ?', true, name);
+        }
         return DatBase.stmtCall('select * from trials');
     }
 

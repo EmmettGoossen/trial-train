@@ -1,9 +1,8 @@
 import { trialsBase } from "@/data/contactTrialDB";
-import { report } from "process";
 
 export async function POST(request: Request) {
     const body = await request.json();
-    let res = 'Success. ' + body.type + "d " + "trial: " + body.name;;
+    let res = 'Success. ' + body.type + "d " + "trial: " + body.name;
 
     switch(body.type){
         case "create":

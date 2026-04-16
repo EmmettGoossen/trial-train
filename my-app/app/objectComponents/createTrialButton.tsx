@@ -33,10 +33,15 @@ export function Menu({ setShowCreation }: MenuProps) {
                 }}></input>
             <button style={{ position: 'relative', top: '25px' }}
                 onClick={() => { //add duplicate & empty name test
-                    updateDB(inputValue);
-                    setShowCreation(false);
-                    params.set("name", inputValue);
-                    router.push(`/Trialpage?${params.toString()}`);
+                    checkDuplicate(inputValue).then((isDup: any) => {
+                        if(inputValue == "" || isDup){
+                            return;
+                        }
+                        updateDB(inputValue);
+                        setShowCreation(false);
+                        params.set("name", inputValue);
+                        router.push(`/Trialpage?${params.toString()}`);
+                    });
                 }}>
                 Create Trial
             </button>
@@ -52,10 +57,31 @@ async function updateDB(name: string) {
   });
   if (!response.ok) {
     const errorText = await response.text(); 
-    console.error("Server Error:", errorText);
+    console.error(errorText);
     return;
   }
 
   const result = await response.json();
   return result;
+}
+
+async function checkDuplicate(name: string) {
+    const response = await fetch(`/api/trial/${name}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  if (!response.ok) {
+    const errorText = await response.text(); 
+    console.error(errorText);
+    return;
+  }
+
+  const result = await response.json();
+  let arr = result.data;
+  for(let inx = 0; inx < arr.length; inx++){
+    if(arr[inx].name == name){
+        return true;
+    }
+  }
+  return false;
 }
