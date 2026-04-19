@@ -1,13 +1,14 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Menu } from "./Menu/menu";
 
 
 export function DeleteTrial() {
     const [showCreation, setShowCreation] = useState(false);
     return <>
         <button className="deleteTrial" onClick={() => setShowCreation(true)}>Delete Trial</button>
-        {showCreation && <Menu setShowCreation={setShowCreation} />}
+        {showCreation && <Menu setShowCreation={setShowCreation} MenuLayout={MenuLayout} args={{setShowCreation}} />}
     </>;
 
 }
@@ -15,23 +16,13 @@ export function DeleteTrial() {
 interface MenuProps {
     setShowCreation: (value: boolean) => void;
 }
-export function Menu({ setShowCreation }: MenuProps) {
+function MenuLayout({ setShowCreation }: MenuProps) {
     const router = useRouter();
     const params = new URLSearchParams(document.location.search);
 
-    return <div style={{ background: "rgba(155,155,155,0.4)", width: "100vw", height: "100vh", position: "fixed" }}>
-        <div style={{ position: "absolute", 
-                      insetInlineStart: "25%", 
-                      insetBlockStart: "25%", 
-                      height: "100px", 
-                      padding: "15px", 
-                      background: "var(--background2)",
-                      borderRadius: "5px" }}>
-            <div>
-                <button onClick={() => setShowCreation(false)} className="text-red-500 pr-2">x</button>
-            </div>
+    return <>
             <p>Warning! this is irreversible...</p>
-            <button style={{ position: 'relative', top: '5px', left: '70%' }}
+            <button style={{ paddingLeft:"175px", paddingTop:"15px" }}
                 onClick={() => {
                     let name = String(params.get("name"));
                     updateDB(name);
@@ -40,8 +31,7 @@ export function Menu({ setShowCreation }: MenuProps) {
                 }}>
                 I'm sure!
             </button>
-        </div>
-    </div>;
+        </>;
 }
 
 async function updateDB(name: string) {
