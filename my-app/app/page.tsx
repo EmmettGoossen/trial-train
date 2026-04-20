@@ -6,7 +6,7 @@ import { trialsBase } from "@/data/contactTrialDB";
 export default function Home() {
   return <>
     <div className="headerBar">
-      <div style={{fontSize:"10px", gridColumnStart:10, gridColumnEnd:11, marginLeft:"auto"}}>
+      <div style={{fontSize:"12px", gridColumnStart:10, gridColumnEnd:11, marginLeft:"auto"}}>
         <a target="_blank" href="https://icons8.com/icon/101799/graph">Graph</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
       </div>
     </div>
