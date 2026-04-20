@@ -5,7 +5,11 @@ import { trialsBase } from "@/data/contactTrialDB";
 
 export default function Home() {
   return <>
-    <div className="headerBar"><div style={{fontSize:"10px", gridColumnStart:10, gridColumnEnd:11, marginLeft:"auto"}}><a target="_blank" href="https://icons8.com/icon/101799/graph">Graph</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div></div>
+    <div className="headerBar">
+      <div style={{fontSize:"10px", gridColumnStart:10, gridColumnEnd:11, marginLeft:"auto"}}>
+        <a target="_blank" href="https://icons8.com/icon/101799/graph">Graph</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      </div>
+    </div>
     <div id="container">
       <div id="sideBar">
         <CreateTrial />
