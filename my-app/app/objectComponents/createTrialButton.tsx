@@ -40,8 +40,8 @@ function MenuLayout({ setShowCreation }: MenuProps) {
     <p id="__hidden" style={{display: "none", color: "rgb(150, 30, 30)", fontSize:'10px'}}>Trial already exists or is blank</p>
         <button style={{ paddingLeft:"175px", paddingTop:"15px" }}
             onClick={() => {
-                checkDuplicate(inputValue).then((isDup: any) => {
-                    if(inputValue == "" || isDup){
+                checkValid(inputValue).then((isDup: any) => {
+                    if(isDup){
                         let text = document.getElementById("__input");
                         if(text){
                             text.style.color = "rgb(150, 30, 30)";
@@ -79,7 +79,10 @@ async function updateDB(name: string) {
   return result;
 }
 
-async function checkDuplicate(name: string) {
+async function checkValid(name: string) {
+    if(name == ""){
+       return false; 
+    }
     const response = await fetch(`/api/trial/${name}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
